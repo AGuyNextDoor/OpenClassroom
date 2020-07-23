@@ -1,0 +1,131 @@
+Project summary
+
+
+**MISSION**
+
+1) Traiter le jeu de données afin de repérer des variables pertinentes pour les traitements à venir. Automatiser ces traitements pour éviter de répéter ces opérations.
+
+    note : Le programme doit fonctionner si la base de données est légèrement modifiée (ajout d’entrées, par exemple).
+    => Ne pas utiliser de chiffres precis mais toujours les importer de la base de donnés pour que l'algo soit flexible
+
+2) Tout au long de l’analyse, produire des visualisations afin de mieux comprendre les données. Effectuer une analyse univariée pour chaque variable intéressante, afin de synthétiser son comportement.
+
+    note : L’appel à projets spécifie que l’analyse doit être *simple à comprendre* pour un public néophyte. Soyez donc attentif à la lisibilité :
+              taille des textes, choix des couleurs, netteté suffisante, et variez les graphiques (boxplots, histogrammes, diagrammes circulaires, nuages de points…) pour illustrer au mieux votre propos.
+
+3) Confirmer ou infirmer les hypothèses  à l’aide d’une analyse multivariée. Effectuer les tests statistiques appropriés pour vérifier la significativité des résultats.
+
+4) Élaborer une idée d’application. Identifier des arguments justifiant la faisabilité (ou non) de l’application à partir des données Open Food Facts.
+
+5) Rédiger un rapport d’exploration et pitcher votre idée durant la soutenance du projet.
+
+**----------------------------------------------------------**
+
+
+**COMPETENCES EVALUEES**
+
+    Communiquer ses résultats à l’aide de représentations graphiques lisibles et pertinentes
+    Effectuer des opérations de nettoyage sur des données structurées
+    Effectuer une analyse statistique multivariée
+    Effectuer une analyse statistique univariée
+
+**----------------------------------------------------------**
+
+**DEFINITIONS**
+
+- Statistique Multivariée :
+    En statistique, les analyses multivariées ont pour caractéristique de s'intéresser à des lois de probabilité à plusieurs variables. Les analyses bivariées sont des cas particuliers à deux variables.
+    Les analyses multivariées sont très diverses selon l'objectif recherché, la nature des variables et la mise en œuvre formelle. On peut identifier deux grandes familles : celle des méthodes descriptives
+    (visant à structurer et résumer l'information) et celle des méthodes explicatives visant à expliquer une ou des variables dites « dépendantes » (variables à expliquer) par un ensemble de variables dites « indépendantes » (variables explicatives).
+    Les méthodes appelées en français analyse des données en sont un sous-ensemble.
+
+  Methode Descriptive :
+       partitionnement de données, appelé usuellement clustering
+       positionnement multidimensionnel (MDS, pour multidimensional scaling),
+
+  Methode Explicative :
+        L'analyse de régression multiple
+        La régression logistique (modèle LOGIT)
+        Les réseaux de neurones artificiels
+        Les arbres de décision
+
+- Statistique Univariée :
+    On entend par statistique univariée l’étude d’une seule variable, que celle-ci soit quantitative ou qualitative. La statistique univariée fait partie de la statistique descriptive.
+
+  Variable quantitative :
+        mean (moyenne), sd (écart-type), min (minimum), max (maximum) et range (étendue)
+        Mediane, quantile
+
+  Variable qualitative :
+        tri à plat ou tableau de fréquences.
+
+- Aller plus loin : *La fonction de répartition empirique*
+        La fonction de répartition empirique s'exprime de la manière suivante :
+
+        Femp(x)=1n∑i=1nI{xi≤x}
+         où  I est la fonction indicatrice, et où
+
+        I{xi≤x}={1 si xi≤x0 sinon
+
+- Aller plus loin : *Nombre optimal de classes* pour l'agrégation
+        Pour l'histogramme, il existe des règles pour déterminer le nombre optimal de classes. Par exemple, la règle de Sturges (1926) considère comme nombre optimal de classes :
+
+        k=[1+log2(n)]
+        où n est la taille de l'échantillon.
+
+
+- Aller plus loin dans *les ecarts type* et *dispersion*
+        => https://openclassrooms.com/fr/courses/4525266-decrivez-et-nettoyez-votre-jeu-de-donnees/4730346-comprenez-les-mesures-de-dispersion
+**----------------------------------------------------------**
+**metadata** : https://world.openfoodfacts.org/data/data-fields.txt (description of the fields from the CSV export of the products in the open food facts database)
+
+
+Les champs sont séparés en quatre sections :
+
+    Les informations générales sur la fiche du produit : nom, date de modification, etc.
+    Un ensemble de tags : catégorie du produit, localisation, origine, etc.
+    Les ingrédients composant les produits et leurs additifs éventuels.
+    Des informations nutritionnelles : quantité en grammes d’un nutriment pour 100 grammes du produit.
+
+**----------------------------------------------------------**
+**Outil Graphique :**
+
+
+https://openclassrooms.com/fr/courses/4525266-decrivez-et-nettoyez-votre-jeu-de-donnees/4742171-representez-la-distribution-empirique-dune-variable
+- Histogramme
+- Densité et répartition cumulée
+- Boîtes à moustaches
+- camemberts
+- diagrammes en bâtons et les diagrammes de Cleveland.
+
+Mettre les données sous formes de graphes.
+
+- Histogramme pour tout les ingredients
+- Repartitions des notes nutriscore sur un graph
+- ingredients les plus presents dans les bonnes notes / ingredients les plus presents dans les mauvaises notes
+
+**-----------------------------------------------------------**
+**Analyse Univarié**
+
+Pour chaque element : Moyenne, Variance, boite a moustache
+
+**Analyse Multivarié**
+
+Pour chaque ingredient : Etude entre la note multiscore et nutriment => Covariance empririque, Coefficient de correlation
+regression lineaire
+
+**Liste of graphs/hypothesis** :
+- Montrer que entre les groupes pnns il existe un ecart assez forte dans leurs :
+  - Nutriscore
+  - Certain Nutriments
+
+- Certain Nutriments ont de larges variance qui peuvent  se reflecter par leurs groupes pnns nottament les nutriments : [energy, sucre, salt, sodium, carbohydrates, fat]
+    Conclusion : il existe une large disparites entre les aliments de ces nutriments, ils sont donc a surveiller de pres
+
+- Montrer qu'une correlation existe entre certains nutriments et le nutriscore / sortir l'equation du nutriscore
+
+- l'un des rapports recents pousse a une consommation "illimité" d'aliments du groupe "fruits et legume" et on remarque pourtant une moyenne tres faibles du nutriscore de ce groupe la.
+**----------------------------------------------------------**
+
+**Questions**
+https://www.mynetdiary.com/food-score.html
