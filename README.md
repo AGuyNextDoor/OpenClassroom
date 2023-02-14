@@ -28,7 +28,7 @@ Data segmentation with Unsupervised Learning.
 ## Project 5
 
 NLP categorisation for tag prediction.
-- Text feature engineering (
+- Text feature engineering (word tokenization, word2vec) 
 - Transformers and BERT models
 - Text2Vec
 
